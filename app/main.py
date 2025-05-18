@@ -1,8 +1,11 @@
 import os
 from fastapi import FastAPI
 from .database import create_all_tables
+from .routes.user_routes import router as user_routes
 
 app = FastAPI()
+
+app.include_router(user_routes)
 
 @app.on_event("startup")
 def startup_event():
