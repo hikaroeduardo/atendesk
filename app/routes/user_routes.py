@@ -13,6 +13,14 @@ router = APIRouter(tags=['users'], prefix="/user")
             }
         }
     },
+    "400": {
+        "description": "BAD REQUEST",
+        "content": {
+            "application/json": {
+                "example": {"detail": "Campos obrigatórios faltando. Dados faltantes: ['dado_faltante']"}
+            }
+        }
+    },
     "422": {
         "description": "UNPROCESSABLE_ENTITY",
         "content": {
