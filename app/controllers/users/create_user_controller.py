@@ -14,7 +14,7 @@ class CreateUserController:
             CreateUserService.execute(**data)
 
             return JSONResponse(
-                content="Usuário cadastrado com sucesso!",
+                content={"success": "Usuário cadastrado com sucesso!"},
                 status_code=status.HTTP_201_CREATED
             )
         except UserAlreadyExistis as error:
