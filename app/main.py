@@ -5,7 +5,7 @@ from fastapi.responses import JSONResponse
 from .database import create_all_tables
 from .routes.user_routes import router as user_routes
 
-app = FastAPI()
+app = FastAPI(title="Atendesk")
 
 app.include_router(user_routes)
 
