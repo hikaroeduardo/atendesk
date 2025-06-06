@@ -28,7 +28,7 @@ class LoginUserService:
             expire = datetime.now() + timedelta(minutes=int(os.getenv("EXPIRE_TOKEN")))
             
             data_token = {
-                "sub": user.id,
+                "sub": str(user.id),
                 "exp": expire
             }
 
