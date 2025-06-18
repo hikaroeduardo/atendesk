@@ -6,7 +6,7 @@ from ...errors.tickets.ticket_with_different_user_error import TicketWithDiffere
 from ...errors.customers.customer_not_found_error import CustomerNotFound
 from ...errors.global_error import GlobalError
 
-class CreateTickerController:
+class CreateTicketsController:
     @staticmethod
     async def create(data_ticket: DataCreateTicket, logged_user_id: str):
         data = data_ticket.model_dump()
