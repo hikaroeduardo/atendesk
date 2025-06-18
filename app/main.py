@@ -5,11 +5,13 @@ from fastapi.responses import JSONResponse
 from .database import create_all_tables
 from .routes.user_routes import router as user_routes
 from .routes.customer_routes import router as customer_routes
+from .routes.ticket_routes import router as ticker_routes
 
 app = FastAPI(title="Atendesk")
 
 app.include_router(user_routes)
 app.include_router(customer_routes)
+app.include_router(ticker_routes)
 
 @app.exception_handler(RequestValidationError)
 async def validation_error(request, exc: RequestValidationError):
