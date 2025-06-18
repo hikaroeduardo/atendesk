@@ -7,7 +7,7 @@ from ..responses_docs.tickets.create_ticket import create_ticket_docs
 router = APIRouter(tags=["Tickets"])
 
 @router.post(
-        '/',
+        '/ticket',
         status_code=status.HTTP_201_CREATED,
         summary="Criar um novo chamado",
         responses={**create_ticket_docs}
