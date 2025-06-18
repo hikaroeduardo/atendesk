@@ -4,6 +4,7 @@ from ..controllers.tickets.list_tickets_controller import ListTicketsController
 from ..middlewares.verify_token import Middleware
 from ..schemas.inputs.tickets.create_ticket_schema import DataCreateTicket
 from ..responses_docs.tickets.create_ticket import create_ticket_docs
+from ..responses_docs.tickets.list_tickets import list_tickets_docs
 
 router = APIRouter(tags=["Tickets"])
 
@@ -21,7 +22,8 @@ async def create_tickert(data_ticket: DataCreateTicket, logged_user_id: str = De
 
 @router.get(
     '/tickets',
-    summary="Listar tickets de usuário"
+    summary="Listar tickets de usuário",
+    responses={**list_tickets_docs}
 )
-async def list_tickets(status: str, user_id: str = Depends(Middleware.verify_token)):
+async def list_tickets(status: str = "Aberto", user_id: str = Depends(Middleware.verify_token)):
     return await ListTicketsController.list(status=status, user_id=user_id)
