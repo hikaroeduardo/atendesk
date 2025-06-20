@@ -7,7 +7,7 @@ from .routes.user_routes import router as user_routes
 from .routes.customer_routes import router as customer_routes
 from .routes.ticket_routes import router as ticker_routes
 
-app = FastAPI(title="Atendesk")
+app = FastAPI(title="Atendesk", version="1.0.0")
 
 app.include_router(user_routes)
 app.include_router(customer_routes)
